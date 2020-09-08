@@ -15,6 +15,7 @@ public class BoardEntity extends TimeEntity {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(name = "board_id")
     private Long id;
 
     @Column(length = 10, nullable = false)
@@ -34,3 +35,4 @@ public class BoardEntity extends TimeEntity {
         this.content = content;
     }
 }
+
