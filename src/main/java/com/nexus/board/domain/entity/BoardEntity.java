@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
@@ -15,6 +16,7 @@ public class BoardEntity extends TimeEntity {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(name = "board_id")
     private Long id;
 
     @Column(length = 10, nullable = false)
@@ -26,10 +28,20 @@ public class BoardEntity extends TimeEntity {
     @Column(columnDefinition = "TEXT", nullable = false)
     private String content;
 
+
+    //@OneToMany(mappedBy = "BoardEntity")
+
+    //private List<CommentEntity> commentEntity = new ArrayList<commentEntity>();
+
     @Builder
     public BoardEntity(Long id, String title, String content, String writer) {
         this.id = id;
         this.writer = writer;
+        this.title = title;
+        this.content = content;
+    }
+
+    public void updates(String title, String content){
         this.title = title;
         this.content = content;
     }
