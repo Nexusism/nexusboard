@@ -30,8 +30,7 @@ public class BoardEntity extends TimeEntity {
 
 
     //@OneToMany(mappedBy = "BoardEntity")
-
-    //private List<CommentEntity> commentEntity = new ArrayList<commentEntity>();
+    //private List<CommentEntity> commentEntities = new ArrayList<commentEntities>();
 
     @Builder
     public BoardEntity(Long id, String title, String content, String writer) {

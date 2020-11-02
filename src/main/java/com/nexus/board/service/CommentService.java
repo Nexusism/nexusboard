@@ -26,7 +26,7 @@ public class CommentService {
 
         for ( CommentEntity commentEntity : commentEntities) {
             CommentDto commentDto = CommentDto.builder()
-                    .id(commentEntity.getId())
+                    .boardEntity(boardEntity.getId())
                     .content(commentEntity.getContent())
                     .writer(commentEntity.getWriter())
                     .createdDate(commentEntity.getCreatedDate())
@@ -55,7 +55,7 @@ public class CommentService {
 
     @Transactional
     public Long saveComment(CommentDto commentDto) {
-        return commentRepository.save(commentDto.toEntityc()).getId();
+        return commentRepository.save(commentDto.toEntity()).getId();
     }
 
     @Transactional

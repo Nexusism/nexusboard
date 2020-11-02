@@ -29,7 +29,7 @@ public class CommentEntity extends TimeEntity {
     private BoardEntity boardEntity;
 
     @Builder
-    public CommentEntity(Long id, String content, String writer) {
+    public CommentEntity(BoardEntity boardEntity, String content, String writer) {
         this.boardEntity = boardEntity;
         this.writer = writer;
         this.content = content;
