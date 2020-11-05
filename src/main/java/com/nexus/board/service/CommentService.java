@@ -26,7 +26,7 @@ public class CommentService {
 
         for ( CommentEntity commentEntity : commentEntities) {
             CommentDto commentDto = CommentDto.builder()
-                    .id(commentEntity.getId())
+                    .board(commentEntity.getBoard())
                     .content(commentEntity.getContent())
                     .writer(commentEntity.getWriter())
                     .createdDate(commentEntity.getCreatedDate())
@@ -44,7 +44,7 @@ public class CommentService {
         CommentEntity commentEntity = commentEntityWrapper.get();
 
         CommentDto commentDto = CommentDto.builder()
-                .id(commentEntity.getId())
+                .board(commentEntity.getBoard())
                 .content(commentEntity.getContent())
                 .writer(commentEntity.getWriter())
                 .createdDate(commentEntity.getCreatedDate())
