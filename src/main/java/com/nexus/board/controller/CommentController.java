@@ -27,6 +27,7 @@ public class CommentController {
 
     @PostMapping("/comment")
     public String write(CommentDto commentDto) {
+        System.out.println(commentDto);
         commentService.saveComment(commentDto);
 
         return "redirect:/";

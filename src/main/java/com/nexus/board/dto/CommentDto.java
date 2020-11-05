@@ -18,20 +18,26 @@ public class CommentDto {
     private LocalDateTime createdDate;
     private LocalDateTime modifiedDate;
 
-    public CommentEntity toEntityc(){
+    public CommentEntity toEntity(){
         CommentEntity commentEntity = CommentEntity.builder()
                 //.id(id)
                 .board(board)
                 .writer(writer)
                 .content(content)
+                .boardEntity(boardEntity)
                 .build();
         return commentEntity;
     }
 
     @Builder
+
+    public CommentDto(BoardEntity boardEntity, String content, String writer, LocalDateTime createdDate, LocalDateTime modifiedDate) {
+        this.boardEntity = boardEntity;
+
     public CommentDto(BoardEntity board, String content, String writer, LocalDateTime createdDate, LocalDateTime modifiedDate) {
         this.board = board;
         //this.id = id;
+
         this.writer = writer;
         this.content = content;
         this.createdDate = createdDate;

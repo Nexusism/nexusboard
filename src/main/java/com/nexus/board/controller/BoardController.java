@@ -1,7 +1,9 @@
 package com.nexus.board.controller;
 
 import com.nexus.board.dto.BoardDto;
+import com.nexus.board.dto.CommentDto;
 import com.nexus.board.service.BoardService;
+import com.nexus.board.service.CommentService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 public class BoardController {
     private BoardService boardService;
+    private CommentService commentService;
 
     @GetMapping("/")
     public String list(Model model) {
@@ -29,7 +32,8 @@ public class BoardController {
     @GetMapping("/post/{no}")
     public String detail(@PathVariable("no") Long no, Model model) {
         BoardDto boardDTO = boardService.getPost(no);
-
+        List<CommentDto> commentDtoList = commentService.getCommentlist();
+        model.addAttribute("commentDtoList", commentDtoList);
         model.addAttribute("boardDto", boardDTO);
         return "board/detail.html";
     }
