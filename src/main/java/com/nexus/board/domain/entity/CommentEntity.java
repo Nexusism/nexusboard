@@ -24,11 +24,12 @@ public class CommentEntity extends TimeEntity {
     @Column(columnDefinition = "TEXT", nullable = false)
     private String content;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "board_id_fk")
-    private BoardEntity board;
+    @ManyToOne
+    @JoinColumn(name = "board_id")
+    private BoardEntity boardEntity;
 
     @Builder
+<<<<<<< HEAD
 <<<<<<< HEAD
     public CommentEntity(BoardEntity boardEntity, String content, String writer) {
         this.boardEntity = boardEntity;
@@ -37,6 +38,10 @@ public class CommentEntity extends TimeEntity {
         this.board = board;
         //this.id = id;
 >>>>>>> 0cd69e233dd70a86af8bbf028a53d69a08afe44b
+=======
+    public CommentEntity(Long id, String content, String writer) {
+        this.boardEntity = boardEntity;
+>>>>>>> parent of 0cd69e2... 댓글 1105
         this.writer = writer;
         this.content = content;
     }

@@ -12,7 +12,6 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class CommentDto {
     private Long id;
-    private BoardEntity board;
     private String writer;
     private String content;
     private LocalDateTime createdDate;
@@ -20,8 +19,7 @@ public class CommentDto {
 
     public CommentEntity toEntity(){
         CommentEntity commentEntity = CommentEntity.builder()
-                //.id(id)
-                .board(board)
+                .id(id)
                 .writer(writer)
                 .content(content)
                 .boardEntity(boardEntity)
@@ -30,6 +28,7 @@ public class CommentDto {
     }
 
     @Builder
+<<<<<<< HEAD
 
     public CommentDto(BoardEntity boardEntity, String content, String writer, LocalDateTime createdDate, LocalDateTime modifiedDate) {
         this.boardEntity = boardEntity;
@@ -38,6 +37,10 @@ public class CommentDto {
         this.board = board;
         //this.id = id;
 
+=======
+    public CommentDto(Long id, String content, String writer, LocalDateTime createdDate, LocalDateTime modifiedDate) {
+        this.id = id;
+>>>>>>> parent of 0cd69e2... 댓글 1105
         this.writer = writer;
         this.content = content;
         this.createdDate = createdDate;

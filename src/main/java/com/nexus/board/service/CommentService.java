@@ -27,10 +27,14 @@ public class CommentService {
         for ( CommentEntity commentEntity : commentEntities) {
             CommentDto commentDto = CommentDto.builder()
 <<<<<<< HEAD
+<<<<<<< HEAD
                     .boardEntity(boardEntity.getId())
 =======
                     .board(commentEntity.getBoard())
 >>>>>>> 0cd69e233dd70a86af8bbf028a53d69a08afe44b
+=======
+                    .id(commentEntity.getId())
+>>>>>>> parent of 0cd69e2... 댓글 1105
                     .content(commentEntity.getContent())
                     .writer(commentEntity.getWriter())
                     .createdDate(commentEntity.getCreatedDate())
@@ -48,7 +52,7 @@ public class CommentService {
         CommentEntity commentEntity = commentEntityWrapper.get();
 
         CommentDto commentDto = CommentDto.builder()
-                .board(commentEntity.getBoard())
+                .id(commentEntity.getId())
                 .content(commentEntity.getContent())
                 .writer(commentEntity.getWriter())
                 .createdDate(commentEntity.getCreatedDate())
