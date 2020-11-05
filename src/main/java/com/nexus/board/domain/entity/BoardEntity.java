@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -29,8 +30,13 @@ public class BoardEntity extends TimeEntity {
     private String content;
 
 
+<<<<<<< HEAD
     //@OneToMany(mappedBy = "BoardEntity")
     //private List<CommentEntity> commentEntities = new ArrayList<commentEntities>();
+=======
+    @OneToMany(mappedBy = "board", cascade = CascadeType.ALL)
+    private List<CommentEntity> commentEntities = new ArrayList<CommentEntity>();
+>>>>>>> 0cd69e233dd70a86af8bbf028a53d69a08afe44b
 
     @Builder
     public BoardEntity(Long id, String title, String content, String writer) {

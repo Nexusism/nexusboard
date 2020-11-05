@@ -24,13 +24,19 @@ public class CommentEntity extends TimeEntity {
     @Column(columnDefinition = "TEXT", nullable = false)
     private String content;
 
-    @ManyToOne
-    @JoinColumn(name = "board_id")
-    private BoardEntity boardEntity;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "board_id_fk")
+    private BoardEntity board;
 
     @Builder
+<<<<<<< HEAD
     public CommentEntity(BoardEntity boardEntity, String content, String writer) {
         this.boardEntity = boardEntity;
+=======
+    public CommentEntity(BoardEntity board, String content, String writer) {
+        this.board = board;
+        //this.id = id;
+>>>>>>> 0cd69e233dd70a86af8bbf028a53d69a08afe44b
         this.writer = writer;
         this.content = content;
     }
